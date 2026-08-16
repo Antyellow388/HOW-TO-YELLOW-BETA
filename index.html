@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How To Yellow — Private Beta</title>
+<style>
+:root{--y:#f6b900;--cream:#fffaf0;--ink:#171717;--muted:#756f65;--line:#e9dfcf;--white:#fff;--green:#18824b}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.nav{position:sticky;top:0;z-index:20;background:#fffaf0ee;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:13px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:950;font-size:23px;letter-spacing:-1px}.logo{display:inline-grid;place-items:center;background:var(--y);border-radius:10px;padding:6px 9px;margin-right:7px}
+.navlinks{display:flex;gap:4px;overflow:auto}.navlinks button{border:0;background:transparent;padding:8px 9px;border-radius:9px;white-space:nowrap}.navlinks button:hover{background:#eee6d7}
+.page{display:none}.page.active{display:block}.wrap{max-width:1100px;margin:auto;padding:40px 5%}
+.hero{max-width:1100px;margin:auto;padding:55px 5%;display:grid;grid-template-columns:1.1fr .9fr;gap:42px;align-items:center}
+h1{font-size:clamp(42px,6vw,70px);line-height:.95;letter-spacing:-4px;margin:12px 0}h2{letter-spacing:-1.2px}.lead{font-size:18px;line-height:1.65;color:var(--muted);max-width:700px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}.darkcard{background:var(--ink);color:#fff;border-radius:25px;padding:28px}.sun{width:170px;height:170px;border-radius:50%;background:var(--y);display:grid;place-items:center;margin:auto;font-size:34px;font-weight:950;box-shadow:0 0 0 16px #ffd95744}
+.btn{border:0;border-radius:11px;padding:11px 16px;font-weight:850}.yellow{background:var(--y);color:var(--ink)}.dark{background:var(--ink);color:#fff}.outline{background:#fff;border:1px solid var(--line)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.two{grid-template-columns:repeat(2,1fr)}.four{grid-template-columns:repeat(4,1fr)}
+.badge{display:inline-block;background:#fff0bd;border-radius:99px;padding:6px 10px;font-size:11px;font-weight:900}.muted{color:var(--muted)}.verified{color:var(--green);font-weight:800;font-size:12px}.tag{display:inline-block;background:#f2ede3;border-radius:99px;padding:5px 8px;font-size:11px;font-weight:750;margin:3px}
+.profile{display:flex;align-items:center;gap:13px}.avatar{width:56px;height:56px;border-radius:50%;background:var(--y);display:grid;place-items:center;font-weight:950}.job{display:flex;justify-content:space-between;gap:18px;align-items:center;margin:12px 0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{background:#fff;border:1px solid var(--line);padding:16px;border-radius:15px}.stat b{display:block;font-size:25px}
+.form{display:grid;gap:9px;max-width:700px}.form label{font-size:12px;font-weight:850}.form input,.form textarea,.form select{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.notice{background:#fff0bd;padding:14px;border-radius:13px;margin:15px 0;font-size:13px}.success{background:#e6f6ec;padding:14px;border-radius:13px;margin:15px 0;color:#176b40}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+.modal{display:none;position:fixed;inset:0;background:#0008;z-index:60;align-items:center;justify-content:center;padding:18px}.modal.open{display:flex}.modalbox{width:min(570px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:20px;padding:24px}.close{float:right;border:0;background:#eee;border-radius:8px;padding:7px}.toast{position:fixed;right:18px;bottom:18px;background:var(--ink);color:#fff;padding:13px 16px;border-radius:12px;z-index:90}
+.feedback{position:fixed;right:17px;bottom:17px;z-index:30}.footer{padding:30px 5%;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);gap:20px}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.grid,.two,.four,.stats,.steps{grid-template-columns:1fr}.job{display:block}.job .btn{margin-top:12px}.navlinks{display:none}.wrap{padding-top:30px}}
+</style>
+</head>
+<body>
+<div style="background:#fff0bd;border-bottom:1px solid var(--line);padding:9px 5%;text-align:center;font-size:12px;font-weight:900">🧪 HTY PRIVATE BETA · FIRST 40 FOUNDING TESTERS · NO PAYMENTS · NO NIN/PASSPORT VERIFICATION</div>
+<nav class="nav">
+<div class="brand"><span class="logo">Y</span>HOW TO YELLOW</div>
+<div class="navlinks">
+<button onclick="go('home')">Home</button><button onclick="go('jobs')">Find Work</button><button onclick="go('talent')">Find Talent</button><button onclick="go('learn')">HTY Learn</button><button onclick="go('dashboard')">Dashboard</button>
+</div>
+<button class="btn dark" onclick="openModal('feedback')">💡 Feedback</button>
+</nav>
+
+<section id="home" class="page active"><div class="hero">
+<div><span class="badge">🌻 FOUNDING BETA · #001–#040</span><h1>Real skills.<br><span style="color:var(--y)">Real opportunities.</span></h1><p class="lead">Welcome to the first private test of How To Yellow — a platform designed to connect African talent with businesses looking for skilled people.</p><div class="actions"><button class="btn yellow" onclick="openModal('role')">Enter Beta →</button><button class="btn outline" onclick="go('about')">How this test works</button></div></div>
+<div class="darkcard"><div class="sun">HTY</div><h2>You're one of the first 40.</h2><p style="color:#ccc;line-height:1.6">Your founding tester number is stored on this device during the beta. This prototype does not collect identity documents or payments.</p></div>
+</div><div class="wrap"><div class="grid">
+<div class="card"><h3>👩🏽‍💻 Looking for work?</h3><p class="muted">Create a profile, show your portfolio and discover jobs.</p><button class="btn yellow" onclick="showRole('worker')">Test Talent →</button></div>
+<div class="card"><h3>🏢 Hiring?</h3><p class="muted">Post a beta job, browse talent and review applicants.</p><button class="btn dark" onclick="showRole('employer')">Test Employer →</button></div>
+<div class="card"><h3>💡 Found a problem?</h3><p class="muted">Tell us exactly what confused you or broke.</p><button class="btn outline" onclick="openModal('feedback')">Give Feedback →</button></div>
+</div></div></section>
+
+<section id="about" class="page"><div class="wrap"><span class="badge">🧪 PRIVATE BETA</span><h1 style="font-size:54px">Help us build HTY.</h1><p class="lead">This is a usability test. We want to know whether the product makes sense before real payments, verification and live hiring are added.</p><div class="steps"><div class="step"><b>01 · Create</b><p class="muted">Make a test profile.</p></div><div class="step"><b>02 · Explore</b><p class="muted">Find jobs or talent.</p></div><div class="step"><b>03 · Connect</b><p class="muted">Apply, invite or message.</p></div><div class="step"><b>04 · Report</b><p class="muted">Send honest feedback.</p></div></div><div class="notice"><b>Disabled for beta:</b> payments, NIN/passport verification and real transactions. Please never enter sensitive information.</div></div></section>
+
+<section id="jobs" class="page"><div class="wrap"><h1 style="font-size:52px">Find Work</h1><p class="muted">All listings below are test listings.</p><input id="jobSearch" placeholder="Search jobs or skills…" oninput="renderJobs()" style="width:100%;max-width:520px;padding:12px;border:1px solid var(--line);border-radius:10px"><div id="jobList" style="margin-top:18px"></div></div></section>
+
+<section id="jobDetail" class="page"><div class="wrap"><button class="btn outline" onclick="go('jobs')">← Jobs</button><div class="card" style="margin-top:15px"><span class="badge">🧪 TEST JOB</span><div class="verified">✓ BUSINESS PROFILE</div><h1 style="font-size:48px">Short-form Video Editor</h1><p class="muted">Luna Media · Remote · ₦120,000–₦180,000 test budget</p><span class="tag">Video Editing</span><span class="tag">Reels</span><span class="tag">CapCut</span><h3>About the role</h3><p class="muted">Turn raw footage into engaging short-form videos for social platforms.</p><button class="btn yellow" onclick="openModal('apply')">Apply →</button></div></div></section>
+
+<section id="talent" class="page"><div class="wrap"><h1 style="font-size:52px">Find Talent</h1><p class="muted">Explore sample beta profiles.</p><input id="talentSearch" placeholder="Search talent…" oninput="renderTalent()" style="width:100%;max-width:520px;padding:12px;border:1px solid var(--line);border-radius:10px"><div id="talentList" class="grid two" style="margin-top:18px"></div></div></section>
+
+<section id="profile" class="page"><div class="wrap"><button class="btn outline" onclick="go('talent')">← Talent</button><div class="card" style="margin-top:15px"><div class="profile"><div class="avatar">SI</div><div><h1 style="font-size:40px;margin:0">Salma Ibrahim</h1><p class="muted">Video Editor · Nigeria</p></div></div><p><span class="badge">🌻 FOUNDING TESTER #001</span> <span class="badge">⭐ 4.9</span></p><p class="lead">Short-form video editor specialising in Reels, TikTok and YouTube Shorts.</p><h2>Portfolio</h2><div class="grid"><div class="card">🎬 Fashion Reel</div><div class="card">🎬 Product Ad</div><div class="card">🎬 YouTube Short</div></div><button class="btn yellow" onclick="openModal('invite')">Invite to Job</button></div></div></section>
+
+<section id="create" class="page"><div class="wrap"><span class="badge">🌻 FOUNDING TESTER</span><h1 style="font-size:50px">Create your profile</h1><p class="muted">This saves only on this device for the beta test.</p><div class="card form"><label>Your name</label><input id="pname" placeholder="e.g. Salma Ibrahim"><label>Main skill</label><input id="pskill" placeholder="e.g. Video Editor"><label>Short bio</label><textarea id="pbio" rows="5" placeholder="Tell businesses what you can do…"></textarea><button class="btn yellow" onclick="saveProfile()">Create Profile →</button><div id="profileSuccess" class="success" style="display:none">✅ Profile created! Your founding tester badge is now on your dashboard.</div></div></div></section>
+
+<section id="post" class="page"><div class="wrap"><h1 style="font-size:50px">Post a Beta Job</h1><p class="muted">No payment is required. This is only a test listing.</p><div class="card form"><label>Business name</label><input id="biz" placeholder="e.g. Saphire Studio"><label>Job title</label><input id="jt" placeholder="e.g. Social Media Manager"><label>Description</label><textarea id="jd" rows="5" placeholder="What do you need?"></textarea><label>Test budget</label><input id="jb" placeholder="e.g. ₦100,000/month"><button class="btn yellow" onclick="saveJob()">Publish Beta Job →</button></div></div></section>
+
+<section id="dashboard" class="page"><div class="wrap"><span class="badge">🧪 YOUR BETA WORKSPACE</span><h1 style="font-size:52px">Dashboard</h1><div id="founderCard" class="darkcard" style="margin-bottom:18px"></div><div class="stats"><div class="stat"><b>3</b>Test applications</div><div class="stat"><b>2</b>Shortlisted</div><div class="stat"><b>4.9</b>Test rating</div><div class="stat"><b>🌻</b>Founder</div></div><div class="grid two" style="margin-top:18px"><div class="card"><h3>👩🏽‍💻 Looking for work?</h3><button class="btn yellow" onclick="go('create')">Create/Edit Profile</button> <button class="btn outline" onclick="go('jobs')">Find Jobs</button></div><div class="card"><h3>🏢 Hiring?</h3><button class="btn yellow" onclick="go('post')">Post Job</button> <button class="btn outline" onclick="go('talent')">Find Talent</button></div></div><div class="card" style="margin-top:15px"><h3>Beta checklist</h3><p>☐ Create profile</p><p>☐ Browse job</p><p>☐ Apply</p><p>☐ Browse talent</p><p>☐ Test employer flow</p><button class="btn outline" onclick="openModal('feedback')">Send Feedback</button></div></div></section>
+
+<section id="employer" class="page"><div class="wrap"><span class="badge">🏢 EMPLOYER BETA</span><h1 style="font-size:52px">Employer Dashboard</h1><div class="stats"><div class="stat"><b>2</b>Test jobs</div><div class="stat"><b>8</b>Test applicants</div><div class="stat"><b>3</b>Profiles viewed</div><div class="stat"><b>🧪</b>Beta</div></div><div class="card" style="margin-top:18px"><h3>Short-form Video Editor</h3><p class="muted">12 test applicants</p><button class="btn yellow" onclick="go('applicants')">Review Applicants →</button></div><button class="btn yellow" onclick="go('post')">+ Post Beta Job</button></div></section>
+
+<section id="applicants" class="page"><div class="wrap"><button class="btn outline" onclick="go('employer')">← Employer</button><h1 style="font-size:50px">Applicants</h1><div class="card job"><div class="profile"><div class="avatar">SI</div><div><h3>Salma Ibrahim</h3><p class="muted">Video Editor · ⭐4.9</p><span class="badge">🌻 Founding Tester #001</span></div></div><div><button class="btn outline" onclick="go('profile')">View</button> <button class="btn yellow" onclick="toast('Demo: candidate selected')">Select</button></div></div><div class="card job"><div class="profile"><div class="avatar">FA</div><div><h3>Farida Adam</h3><p class="muted">Social Media Manager · ⭐4.8</p><span class="badge">🌻 Founding Tester #002</span></div></div><button class="btn outline" onclick="go('profile')">View</button></div></div></section>
+
+<section id="learn" class="page"><div class="wrap"><span class="badge">🌱 FUTURE FEATURE</span><h1 style="font-size:55px">HTY Learn</h1><p class="lead">Learn a skill. Build proof. Find work.</p><div class="grid"><div class="card"><h3>🎥 UGC</h3><p class="muted">Creator learning resources.</p><button class="btn outline" onclick="toast('Demo resource opened')">Explore</button></div><div class="card"><h3>🤖 AI Content</h3><p class="muted">AI and creator skills.</p><button class="btn outline" onclick="toast('Demo resource opened')">Explore</button></div><div class="card"><h3>🎬 Video Editing</h3><p class="muted">Build a portfolio-ready skill.</p><button class="btn outline" onclick="toast('Demo resource opened')">Explore</button></div></div></div></section>
+
+<div id="role" class="modal"><div class="modalbox"><button class="close" onclick="closeModal('role')">×</button><h2>Welcome, Founding Tester 🌻</h2><p class="muted">Choose the journey you want to test.</p><div class="grid two"><div class="card"><h2>👩🏽‍💻</h2><h3>Looking for work</h3><button class="btn yellow" onclick="closeModal('role');go('create')">Enter Talent</button></div><div class="card"><h2>🏢</h2><h3>I'm hiring</h3><button class="btn dark" onclick="closeModal('role');go('employer')">Enter Employer</button></div></div></div></div>
+
+<div id="apply" class="modal"><div class="modalbox"><button class="close" onclick="closeModal('apply')">×</button><h2>Apply to test job</h2><p class="muted">No real hiring transaction happens.</p><div class="form"><input id="appName" placeholder="Your name"><textarea rows="4" placeholder="Short message"></textarea><button class="btn yellow" onclick="submitApply()">Submit Test Application</button></div></div></div>
+
+<div id="invite" class="modal"><div class="modalbox"><button class="close" onclick="closeModal('invite')">×</button><h2>Invite Salma to test job</h2><textarea style="width:100%;padding:12px;border:1px solid var(--line);border-radius:10px" rows="4" placeholder="Write a message"></textarea><button class="btn yellow" style="margin-top:10px" onclick="closeModal('invite');toast('Demo invitation sent')">Send Invitation</button></div></div>
+
+<div id="feedback" class="modal"><div class="modalbox"><button class="close" onclick="closeModal('feedback')">×</button><h2>Tell us what you really think 💛</h2><div class="form"><select id="fbType"><option>Something was confusing</option><option>I found a bug</option><option>I have an idea</option><option>I loved something</option></select><textarea id="fbText" rows="6" placeholder="What happened?"></textarea><button class="btn yellow" onclick="submitFeedback()">Save Feedback</button></div></div></div>
+
+<div id="toast" class="toast" style="display:none"></div>
+<div class="feedback"><button class="btn dark" onclick="openModal('feedback')">💡 Beta Feedback</button></div>
+<footer class="footer"><span>🌻 HOW TO YELLOW · PRIVATE BETA</span><span>First 40 testers · Demo only</span></footer>
+
+<script>
+const jobs=[
+["Short-form Video Editor","Luna Media","₦120,000–₦180,000",["Video Editing","Reels","CapCut"]],
+["Social Media Manager","Nia Beauty","₦100,000/month",["Instagram","Content","Social Media"]],
+["Graphic Designer","Kora Studio","₦80,000–₦150,000",["Canva","Branding","Design"]],
+["Content Writer","The Daily Edit","₦70,000/month",["Writing","SEO","Blogs"]]
+];
+const talent=[
+["Salma Ibrahim","Video Editor","4.9","17","SI","#001"],
+["Farida Adam","Social Media Manager","4.8","11","FA","#002"],
+["David Okoro","Graphic Designer","4.8","24","DO","#003"],
+["Tobi James","Copywriter","4.7","9","TJ","#004"]
+];
+
+function go(id){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo(0,0);if(id==="jobs")renderJobs();if(id==="talent")renderTalent();if(id==="dashboard")loadDashboard()}
+function openModal(id){document.getElementById(id).classList.add("open")}
+function closeModal(id){document.getElementById(id).classList.remove("open")}
+function showRole(r){closeModal("role");if(r==="worker")go("create");else go("employer")}
+function renderJobs(){let q=(document.getElementById("jobSearch")?.value||"").toLowerCase();let a=jobs.filter(j=>(j[0]+" "+j[1]+" "+j[3].join(" ")).toLowerCase().includes(q));document.getElementById("jobList").innerHTML=a.map(j=>`<div class="card job"><div><span class="badge">🧪 TEST JOB</span><div class="verified">✓ BUSINESS PROFILE</div><h3>${j[0]}</h3><p class="muted">${j[1]} · ${j[2]} · Remote</p>${j[3].map(t=>`<span class="tag">${t}</span>`).join("")}</div><button class="btn yellow" onclick="go('jobDetail')">View Job →</button></div>`).join("")}
+function renderTalent(){let q=(document.getElementById("talentSearch")?.value||"").toLowerCase();let a=talent.filter(t=>(t[0]+" "+t[1]).toLowerCase().includes(q));document.getElementById("talentList").innerHTML=a.map(t=>`<div class="card"><div class="profile"><div class="avatar">${t[4]}</div><div><h3>${t[0]}</h3><p class="muted">${t[1]}</p></div></div><p><span class="badge">🌻 FOUNDING TESTER ${t[5]}</span></p><b>⭐ ${t[2]}</b> <span class="muted">· ${t[3]} sample jobs</span><br><button class="btn yellow" style="margin-top:13px" onclick="go('profile')">View Profile →</button></div>`).join("")}
+function saveProfile(){let name=document.getElementById("pname").value.trim(),skill=document.getElementById("pskill").value.trim(),bio=document.getElementById("pbio").value.trim();if(!name||!skill){toast("Please enter your name and skill.");return}localStorage.setItem("hty_profile",JSON.stringify({name,skill,bio}));document.getElementById("profileSuccess").style.display="block";setTimeout(()=>go("dashboard"),500)}
+function loadDashboard(){let p=JSON.parse(localStorage.getItem("hty_profile")||"null");document.getElementById("founderCard").innerHTML=p?`<span class="badge">🌻 FOUNDING TESTER #001</span><h2 style="margin-bottom:5px">${p.name}</h2><p style="color:#ccc;margin-top:0">${p.skill}</p><p style="color:#ccc">${p.bio||"Beta member"}</p>`:`<span class="badge">🌻 FOUNDING TESTER #001</span><h2>Welcome, Founding Tester</h2><p style="color:#ccc">Create your profile to personalise your dashboard.</p>`}
+function saveJob(){let b=document.getElementById("biz").value.trim(),j=document.getElementById("jt").value.trim();if(!b||!j){toast("Add a business name and job title.");return}toast("Beta job published!");setTimeout(()=>go("employer"),500)}
+function submitApply(){let n=document.getElementById("appName").value.trim();if(!n){toast("Please enter your name.");return}closeModal("apply");toast("Test application submitted! 🌻")}
+function submitFeedback(){let text=document.getElementById("fbText").value.trim();if(!text){toast("Please tell us what you noticed.");return}let a=JSON.parse(localStorage.getItem("hty_feedback")||"[]");a.push({type:document.getElementById("fbType").value,text,time:new Date().toISOString()});localStorage.setItem("hty_feedback",JSON.stringify(a));document.getElementById("fbText").value="";closeModal("feedback");toast("Thank you! Feedback saved on this device 💛")}
+function toast(m){let t=document.getElementById("toast");t.textContent=m;t.style.display="block";clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display="none",2500)}
+renderJobs();renderTalent();
+</script>
+</body>
+</html>
